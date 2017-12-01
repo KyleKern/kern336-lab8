@@ -77,7 +77,7 @@
         
         
          function validateUsername() {
-              alert("starting ajax call");
+           
             $.ajax({
                
                 type: "get",
