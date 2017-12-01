@@ -81,7 +81,7 @@
             $.ajax({
                
                 type: "get",
-                url: "https://kern336-hw3-kylekern.c9users.io/usernameLookup.php",
+                url: "https://kern-lab8.herokuapp.com/usernameLookup.php",
                 dataType: "json",
                 data: {
                     'username': $('#username').val(),
