@@ -14,18 +14,16 @@
                 },
                 success: function(data,status) {
                     if (data.city == null) {
-                        $('#city').html("Unknown");
+                       $('#city').html("Unknown");
                         $("#lon").html("Unknown");
                         $("#lat").html("Unknown");
-                        $('#zip-valid').html("zip is invalid");
+                         $('#zip-valid').html("zip is invalid");
                         $('#zip-valid').css("color", "red");
                     } else {
                         console.log(data); 
                         $("#city").html(data.city);
                         $("#lon").html(data.longitude);
                         $("#lat").html(data.latitude);
-                        $('#zip-valid').html("zip is valid");
-                        $('#zip-valid').css("color", "green");
                     }
                    
                     
@@ -77,11 +75,11 @@
         
         
          function validateUsername() {
-           
+              alert("starting ajax call");
             $.ajax({
                
                 type: "get",
-                url: "https://kern-lab8.herokuapp.com/usernameLookup.php",
+                url: "https://kern336-hw3-kylekern.c9users.io/usernameLookup.php",
                 dataType: "json",
                 data: {
                     'username': $('#username').val(),
@@ -97,23 +95,26 @@
                     }
                     
                   },
-                complete: function(data,status) { 
-                    //optional, used for debugging purposes
+                complete: function(data,status) { //optional, used for debugging purposes
                      //alert(status);
                 }
             });
                 }
     </script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body id="dummybodyid">
-   <h1> Sign Up Form </h1>
+   <h1> Sign Up Form </br> </br> </h1>
     <form>
         <fieldset>
            <legend>Sign Up</legend>
+            <h2>
             First Name:  <input type="text"><br> 
             Last Name:   <input type="text"><br> 
             Email:       <input type="text"><br> 
             Phone Number:<input type="text"><br><br>
+            </h2>
+            <h3>
             Zip Code:    <input id="zip" onchange="getCityInfo();" type="text"><br><span id="zip-valid"></span><br>
             City:  <span id="city"></span>
             <br>
@@ -121,11 +122,16 @@
             <br>
             Longitude: <span id="lat"></span>
             <br><br>
+            </h3>
+            <h4>
             State: <input id="state" onchange="getCountyList();"type="text"><br>
             Select a County: <select id="county"></select><br>
+            </h4>
+            <h5>
             Desired Username: <input onchange="validateUsername();" id='username' type="text"> <span id="username-valid"></span><br>
             Password: <input type="password"><br>
             Type Password Again: <input onchange"checkPassword" input type="password"><br>
+            </h5>
             <input type="submit" value="Sign up!">
         </fieldset>
     </form>
